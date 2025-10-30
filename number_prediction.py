@@ -102,9 +102,10 @@ import matplotlib.pyplot as plt
 plt.plot(loss_rates, c='red')
 plt.xlabel('epoch')
 plt.ylabel('коэф. потерь таргетных значений')
+plt.show()
+
 
 plt.plot(score_of_success_rates)
 plt.ylabel('% верных предсказаний')
 plt.xlabel('epoch')
-
 plt.show()
