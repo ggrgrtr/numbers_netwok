@@ -1,3 +1,6 @@
+**подробный график в 0_9.ipyl
+
+
 <img width="617" height="433" alt="image" src="https://github.com/user-attachments/assets/dc537177-7027-4c6e-965c-0f0826620073" />
 
 
