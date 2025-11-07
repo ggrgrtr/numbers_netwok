@@ -1,0 +1,129 @@
+import torch as q
+import numpy as np
+import torchvision.datasets as datasets
+import random
+import matplotlib.pyplot as plt
+
+# КОНВОЛЮЦИОННАЯ СЕТЬ
+
+random.seed(0)
+q.manual_seed(0)
+q.cuda.manual_seed(0)
+np.random.seed(0)
+q.backends.cudnn.determenistic = True
+
+mnist_train = datasets.MNIST(root='./data', train=True)
+mnist_test = datasets.MNIST(root='./data', train=False)
+
+print("studying:\n", "pictures: ", len(x_train), "; numbers: ", len(y_train), sep='')
+
+# TRAIN
+x_train = mnist_train.data
+y_train = mnist_train.targets
+# TEST
+x_test = mnist_test.data
+y_test = mnist_test.targets
+
+plt.imshow(x_train[0])
+plt.legend(f"number: {y_train[0]}")
+plt.show()
+print("number: ", y_train[0])
+
+x_train.unsqueeze(1)  # 60000*28*28 -> 60000*1*28*28
+y_train.unsqueeze(1)
+x_train = x_train.float()
+x_test = x_test.float()
+
+
+
+class LeNet(q.nn.Module):
+    def __init__(self):
+        super(LeNet, self).__init__()
+
+        # свертка: размер ядра - 5*5, отступ - 2, шаг 1, вых.каналы - 6
+        self.conv1 = q.nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5, stride=1, padding=2)
+        # F.act. - гиперб.танг.
+        self.act1 = q.nn.Tanh()
+        # пулинг 2*2, шаг 2
+        self.pool1 = q.nn.MaxPool2d(kernel_size=2, stride=2)  # MaxPooling
+
+        self.conv2 = q.nn.Conv2d(6, 16, 5)  # stride 1, padding 0
+        self.act2 = q.nn.Tanh()
+        self.pool2 = q.nn.MaxPool2d(kernel_size=2, stride=2)
+
+        # Для линейного вектора:
+        self.fc_linear1 = q.nn.Linear(in_features=16 * 5 * 5, out_features=120)  # 16*5*5 - длина вектора после свертки
+        self.act3 = q.nn.Tanh()
+
+        self.fc_linear2 = q.nn.Linear(in_features=120, out_features=84)
+        self.act4 = q.nn.Tanh()
+
+        self.fc_linear3 = q.nn.Linear(in_features=84, out_features=10)
+
+    def forward(self, batch):
+        batch = self.conv1(batch)
+        batch = self.act1(batch)
+        batch = self.pool1(batch)
+
+        batch = self.conv2(batch)
+        batch = self.act2(batch)
+        batch = self.pool2(batch)
+
+        batch = batch.view(batch.size(0), -1)  # -----?
+
+        batch = self.fc_linear1(batch)
+        batch = self.act3(batch)
+        batch = self.fc_linear2(batch)
+        batch = self.act4(batch)
+        bathc = self.fc_linear3(batch)
+
+        return batch
+
+
+net = LeNet()
+loss_f = q.nn.CrossEntropyLoss()
+optimizer = q.optim.Adam(model.parameters(), lr=0.001)
+
+device = q.device("cuda:0" if torch.cuda.is_available() else "cpu")
+net.to(device)
+x_train = x_train.to(device)
+x_test = x_test.to(device)
+
+accuracy_history_test = []
+loss_history = []
+
+batch_size = 100
+for epoch in range(10):
+    order = np.random.permutation(len(x_train))
+
+    # обучение батчами
+    for idx in range(0, len(order), batch_size):
+        optimizer.zero_grad()
+        batch_indexes = order[idx:idx + batch_size]
+
+        x_batch = x_train[batch_indexes].to(device)
+        y_batch = y_train[batch_indexes].to(device)
+
+        prediction = net.forward(x_batch)
+
+        loss_value = loss_f(prediction, y_batch)
+        loss_value.backward()
+
+        optimizer.step()
+
+    test_prediction = net.forward(x_test)
+
+    # .data - получаем скаляр графа
+    loss_history.append(loss_f(prediction, y_test).data.cpu())
+
+    accuracy = (test_prediction.argmax(dim=1) == y_test).float().mean().data.cpu()
+    accuracy_history_test.append(accuracy)
+
+    if epoch % 2 == 0:
+        print(accuracy)
+
+# Graphic
+plt.plot(accuracy_history_test)
+plt.show()
+plt.plot(loss_history)
+plt.show()
