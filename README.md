@@ -5,11 +5,13 @@
 
 ## Свёрточная нейронная сеть для MNIST
 
+-> *numbers_conv.py*
+
 
 ## Полносвязанная нейронная сеть для определения чисел без свертки MNIST
 
 
-**подробные графики в 0_9_fc.ipynb**
+**графики в 0_9_fc.ipynb**
 
 
 <img width="617" height="433" alt="image" src="https://github.com/user-attachments/assets/dc537177-7027-4c6e-965c-0f0826620073" />
