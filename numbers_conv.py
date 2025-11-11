@@ -114,6 +114,7 @@ for epoch in range(10):
         optimizer.zero_grad()
         # подбираются параметры мат. ожидания и старндартного отклонения ф. в слое
         # ставим флаг на обучение
+        # параметры нормализации подстраиваются не при градиентном спуске (убывании ф. потерь), а при прямом вычеслении в forward
         net.train()
 
         batch_indexes = order[idx:idx + batch_size]
@@ -146,3 +147,4 @@ plt.plot(accuracy_history_test)
 plt.show()
 plt.plot(loss_history)
 plt.show()
+
