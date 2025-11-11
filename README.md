@@ -11,6 +11,7 @@
 ## Полносвязанная нейронная сеть для определения чисел без свертки MNIST
 
 -> *number_prediction_fully_connected.py*
+
 графики в 0_9_fc.ipynb
 
 
