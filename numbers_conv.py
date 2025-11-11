@@ -6,10 +6,12 @@ import matplotlib.pyplot as plt
 
 # КОНВОЛЮЦИОННАЯ СЕТЬ
 
+# выставляем одинаковые сиды, чтобы не было изменяющихся радомных данных
 random.seed(0)
 q.manual_seed(0)
 q.cuda.manual_seed(0)
 np.random.seed(0)
+# для восроизводимости результатов CUDA Deep Neural Network library при работе с гпу
 q.backends.cudnn.deterministic = True
 
 mnist_train = datasets.MNIST(root='./data', train=True)
@@ -80,7 +82,7 @@ class LeNet(q.nn.Module):
 
         # преобразование многомерного тензора в двумерный для подачи f.c.linear
         # -1 -- автоматическое вычисление длины вектора по второй оси
-        batch = batch.view(batch.size(0), -1)  # -----?
+        batch = batch.view(batch.size(0), -1) 
 
         batch = self.fc_linear1(batch)
         batch = self.act3(batch)
