@@ -16,6 +16,8 @@
 
 графики в 0_9_fc.ipynb
 
+<img width="1001" height="680" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
+
 
 <img width="617" height="433" alt="image" src="https://github.com/user-attachments/assets/dc537177-7027-4c6e-965c-0f0826620073" />
 
