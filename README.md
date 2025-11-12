@@ -14,13 +14,15 @@
 
 -> *number_prediction_fully_connected.py*
 
-графики в 0_9_fc.ipynb
+или 0_9_fc.ipynb
 
 <img width="1001" height="680" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
 
 
-<img width="617" height="433" alt="image" src="https://github.com/user-attachments/assets/dc537177-7027-4c6e-965c-0f0826620073" />
-
-
 Изменение функции потерь и точности предсказания в зависимости от итерируемой эпохи
+
 <img width="421" height="325" alt="image" src="https://github.com/user-attachments/assets/5bb85eab-1079-4995-a27c-ca559b0ae679" />
+
+
+
+<img width="617" height="433" alt="image" src="https://github.com/user-attachments/assets/dc537177-7027-4c6e-965c-0f0826620073" />
