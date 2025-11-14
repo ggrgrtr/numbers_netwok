@@ -7,7 +7,7 @@
 
 **LeNet**:
 
-MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]
+*MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
 <img width="547" height="435" alt="image" src="https://github.com/user-attachments/assets/36ca4a6b-b0af-49fc-83bb-17d3215e7cc1" />
 <img width="556" height="435" alt="image" src="https://github.com/user-attachments/assets/d8adbe45-3412-41ca-8f73-b406b443fac5" />
@@ -20,6 +20,7 @@ Batch-нормализация сильно ускоряет процесс об
 
 Две свертки 3х3 дают бОльшую погрешность, чем свертка 5х5. Из-за меньшего кол-ва весов у 3х3, сеть стала хуже обучаться (и быстрее переобучаться)
 
+**! Не для всех задач подходят стандартные оптимальные решения, рекомендации носят эмпирический характер**
 
 
 ## Свёрточная нейронная сеть для MNIST
