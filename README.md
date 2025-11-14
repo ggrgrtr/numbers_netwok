@@ -6,8 +6,9 @@
 
 *MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
-<img width="547" height="435" alt="image" src="https://github.com/user-attachments/assets/36ca4a6b-b0af-49fc-83bb-17d3215e7cc1" />
-<img width="556" height="435" alt="image" src="https://github.com/user-attachments/assets/d8adbe45-3412-41ca-8f73-b406b443fac5" />
+<img width="552" height="435" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
+<img width="561" height="435" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
+
 
 На основе первого графика можно увидеть, что:
 
