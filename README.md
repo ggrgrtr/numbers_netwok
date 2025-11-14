@@ -9,6 +9,9 @@
 <img width="552" height="435" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
 <img width="561" height="435" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
 
+LeNet хорошо справляется с предссказанием одноканальных тензоров (цифры), но не с RGB.
+
+CIFAR_net имеет больше каналов (до 256), что улучшает качество из-за извлечения из данных большего количества информации.
 
 На основе первого графика можно увидеть, что:
 
