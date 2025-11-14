@@ -5,6 +5,15 @@
 
 ## Сверточная нейронная сеть с нормализацией для CIFAR
 
+**LeNet**:
+
+MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]
+
+<img width="547" height="435" alt="image" src="https://github.com/user-attachments/assets/36ca4a6b-b0af-49fc-83bb-17d3215e7cc1" />
+
+
+
+<img width="556" height="435" alt="image" src="https://github.com/user-attachments/assets/d8adbe45-3412-41ca-8f73-b406b443fac5" />
 
 ## Свёрточная нейронная сеть для MNIST
 
