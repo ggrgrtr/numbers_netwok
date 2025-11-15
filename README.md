@@ -4,7 +4,7 @@
 
 -> *CIFAR_test.ipynb*
 
-**LeNet и MNISTnet**:
+**LeNet и CIFARnet**:
 
 *MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
