@@ -2,7 +2,9 @@
 
 ## Сверточная нейронная сеть с нормализацией для CIFAR
 
-**LeNet**:
+-> *CIFAR_test.ipynb*
+
+**LeNet и MNISTnet**:
 
 *MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
