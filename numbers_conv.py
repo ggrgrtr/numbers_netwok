@@ -14,8 +14,8 @@ np.random.seed(0)
 # для восроизводимости результатов CUDA Deep Neural Network library при работе с гпу
 q.backends.cudnn.deterministic = True
 
-mnist_train = datasets.MNIST(root='./data', train=True)
-mnist_test = datasets.MNIST(root='./data', train=False)
+mnist_train = datasets.MNIST(root='./data', download=True, train=True)
+mnist_test = datasets.MNIST(root='./data', download=True, train=False)
 
 # TRAIN
 x_train = mnist_train.data
@@ -31,10 +31,12 @@ plt.title(f"number: {y_train[0]}")
 plt.show()
 print("number: ", y_train[0])
 
-x_train = x_train.unsqueeze(1)  # Tensor: 60000*28*28 -> 60000*1*28*28
-y_train = y_train.unsqueeze(1)
-x_train = x_train.float()
-x_test = x_test.float()
+x_train = x_train.unsqueeze(1).float()  # Tensor: 60000*28*28 -> 60000*1*28*28   (for channels )
+x_test = x_test.unsqueeze(1).float()
+
+
+# x_train = x_train
+# x_test = x_test.float()
 
 
 class LeNet(q.nn.Module):
@@ -43,25 +45,25 @@ class LeNet(q.nn.Module):
         # изображение 2d
 
         # свертка: размер ядра - 3*3, отступ - 0, шаг 1, вых.каналы - 6 -> вых.каналы - 6
-        # ВМЕСТО СВЕРТКИ 5*5 БЕРЕМ 2 СВЕРТКИ 3*3 ДЛЯ ИСПОЛЬЗОВАНИЯ МЕНЬШИХ ВЕСОВ 25w vs 18w
-        self.conv1_1 = q.nn.Conv2d(in_channels=1, out_channels=6, kernel_size=3, stride=1, padding=0)
-        self.conv1_2 = q.nn.Conv2d(in_channels=6, out_channels=6, kernel_size=3, stride=1, padding=0)
+        # ВМЕСТО СВЕРТКИ 5*5 БЕРЕМ 2 СВЕРТКИ 3*3 ДЛЯ ИСПОЛЬЗОВАНИЯ МЕНЬШИХ ВЕСОВ: 25w vs 18w
+        self.conv1_1 = q.nn.Conv2d(in_channels=1, out_channels=6, kernel_size=3, stride=1, padding=0)  # 26
+        self.conv1_2 = q.nn.Conv2d(in_channels=6, out_channels=6, kernel_size=3, stride=1, padding=0)  # 24
         # F.act. - ReLU
         self.act1 = q.nn.ReLU()
         # нормируем кучу
         self.norm1 = q.nn.BatchNorm2d(num_features=6)
         # пулинг 2*2, шаг 2
-        self.pool1 = q.nn.MaxPool2d(kernel_size=2, stride=2)  # MaxPooling
+        self.pool1 = q.nn.MaxPool2d(kernel_size=2, stride=2)  # MaxPooling   12x12
 
-        self.conv2_1 = q.nn.Conv2d(in_channels=6, out_channels=16, kernel_size=3, stride=1, padding=0)
-        self.conv2_2 = q.nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, stride=1, padding=0)
-        # self.conv2 = q.nn.Conv2d(6, 16, 5)  # stride 1, padding 0
+        self.conv2_1 = q.nn.Conv2d(in_channels=6, out_channels=16, kernel_size=3, stride=1, padding=0)  # 10
+        self.conv2_2 = q.nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, stride=1, padding=0)  # 8
+        # self.conv2 = q.nn.Conv2d(8, 16, 5)  # stride 1, padding 0
         self.act2 = q.nn.ReLU()
         self.norm2 = q.nn.BatchNorm2d(num_features=16)
-        self.pool2 = q.nn.MaxPool2d(kernel_size=2, stride=2)
+        self.pool2 = q.nn.MaxPool2d(kernel_size=2, stride=2)  # -> 4x4
 
         # Для линейного вектора:
-        self.fc_linear1 = q.nn.Linear(in_features=16 * 5 * 5, out_features=120)  # 16*5*5 - длина вектора после свертки
+        self.fc_linear1 = q.nn.Linear(in_features=16 * 4 * 4, out_features=120)  # 16x4x4 - длина вектора после свертки
         self.act3 = q.nn.ReLU()
 
         self.fc_linear2 = q.nn.Linear(in_features=120, out_features=84)
@@ -82,7 +84,7 @@ class LeNet(q.nn.Module):
 
         # преобразование многомерного тензора в двумерный для подачи f.c.linear
         # -1 -- автоматическое вычисление длины вектора по второй оси
-        batch = batch.view(batch.size(0), -1) 
+        batch = batch.view(batch.size(0), batch.size(1) * batch.size(2) * batch.size(3))
 
         batch = self.fc_linear1(batch)
         batch = self.act3(batch)
@@ -106,7 +108,7 @@ accuracy_history_test = []
 loss_history = []
 
 batch_size = 100
-for epoch in range(10):
+for epoch in range(30):
     order = np.random.permutation(len(x_train))
 
     # обучение батчами
@@ -134,7 +136,7 @@ for epoch in range(10):
     test_prediction = net.forward(x_test)
 
     # .data -- получаем скаляр графа
-    loss_history.append(loss_f(prediction, y_test).data.cpu())
+    loss_history.append(loss_f(test_prediction, y_test).data.cpu())
 
     accuracy = (test_prediction.argmax(dim=1) == y_test).float().mean().data.cpu()
     accuracy_history_test.append(accuracy)
@@ -144,7 +146,13 @@ for epoch in range(10):
 
 # Graphic
 plt.plot(accuracy_history_test)
-plt.show()
-plt.plot(loss_history)
+plt.ylabel('% of pred')
+plt.xlabel('epoch')
+plt.legend()
 plt.show()
 
+plt.plot(loss_history)
+plt.ylabel('% loss')
+plt.xlabel('epoch')
+plt.legend()
+plt.show()
