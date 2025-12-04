@@ -1,5 +1,8 @@
 # Нейронные сети на основе LeNet
 
+(with Transfer Learning)
+
+
 ## Сверточная нейронная сеть с нормализацией для CIFAR
 
 -> *CIFAR_test.ipynb*
