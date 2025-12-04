@@ -1,6 +1,6 @@
 # Нейронные сети на основе LeNet
 
-(with Transfer Learning)
+### (with Transfer Learning)
 
 
 ## Сверточная нейронная сеть с нормализацией для CIFAR
