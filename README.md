@@ -11,8 +11,8 @@
 
 *MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
-<img width="552" height="435" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
-<img width="561" height="435" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
+<img width="500" height="360" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
+<img width="500" height="360" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
 
 LeNet хорошо справляется с предссказанием одноканальных тензоров (цифры), но не с RGB.
 
@@ -36,8 +36,8 @@ Bспользуя две последовательные свертки 3х3, �
 
 -> *numbers_conv.py*
 
-<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
-<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/0e0d7e44-6d15-4ccd-a917-01a557cf0881" />
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/0e0d7e44-6d15-4ccd-a917-01a557cf0881" />
 
 -
 
@@ -50,9 +50,9 @@ Bспользуя две последовательные свертки 3х3, �
 
 ## Полносвязанная нейронная сеть для определения чисел без свертки MNIST
 
--> *number_prediction_fully_connected.py* | *0_9_fc.ipynb*
+-> *number_prediction_fully_connected.py* **|** *0_9_fc.ipynb*
 
-<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
 
 
 Изменение функции потерь и точности предсказания в зависимости от итерируемой эпохи
