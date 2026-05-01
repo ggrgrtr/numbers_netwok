@@ -11,8 +11,8 @@
 
 *MaxPooling, AvgPooling, ReLU, BatchNormalization, Convolution(5x5), 2x[Convolution(3x3)]*
 
-<img width="500" height="360" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
-<img width="500" height="360" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
+<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/ac87c082-8608-4027-8e6b-d485bec31b80" />
+<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/09ff5a57-72b6-429b-bb62-0c341f13829b" />
 
 LeNet хорошо справляется с предссказанием одноканальных тензоров (цифры), но не с RGB.
 
