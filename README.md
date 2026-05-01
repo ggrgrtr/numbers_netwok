@@ -36,6 +36,9 @@ Bспользуя две последовательные свертки 3х3, �
 
 -> *numbers_conv.py*
 
+<img width="1156" height="916" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
+
+
 <img width="807" height="690" alt="image" src="https://github.com/user-attachments/assets/e9349433-3ada-4343-89ee-8a2fd70a0bb2" />
 <img width="806" height="691" alt="image" src="https://github.com/user-attachments/assets/16dfcbf1-48df-45d2-994d-d718d9e15fa2" />
 
@@ -45,9 +48,7 @@ Bспользуя две последовательные свертки 3х3, �
 
 ## Полносвязанная нейронная сеть для определения чисел без свертки MNIST
 
--> *number_prediction_fully_connected.py*
-
-или 0_9_fc.ipynb
+-> *number_prediction_fully_connected.py* | *0_9_fc.ipynb*
 
 <img width="1001" height="680" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
 
