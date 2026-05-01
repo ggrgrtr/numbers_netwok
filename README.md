@@ -37,10 +37,12 @@ Bспользуя две последовательные свертки 3х3, �
 -> *numbers_conv.py*
 
 <img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/0e0d7e44-6d15-4ccd-a917-01a557cf0881" />
 
+-
 
-<img width="807" height="690" alt="image" src="https://github.com/user-attachments/assets/e9349433-3ada-4343-89ee-8a2fd70a0bb2" />
-<img width="806" height="691" alt="image" src="https://github.com/user-attachments/assets/16dfcbf1-48df-45d2-994d-d718d9e15fa2" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/e9349433-3ada-4343-89ee-8a2fd70a0bb2" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/16dfcbf1-48df-45d2-994d-d718d9e15fa2" />
 
 Из-за использования батч-нормализации сеть быстро стала очень уверенна в своих ответах, в следствии чего сильно возросла функция потерь
 Видно, что на ~4 эпохе сеть начинает переобучаться и выдавать нестабилную высоковолатильную точность
