@@ -36,7 +36,7 @@ Bспользуя две последовательные свертки 3х3, �
 
 -> *numbers_conv.py*
 
-<img width="1156" height="916" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
+<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
 
 
 <img width="807" height="690" alt="image" src="https://github.com/user-attachments/assets/e9349433-3ada-4343-89ee-8a2fd70a0bb2" />
