@@ -36,8 +36,8 @@ Bспользуя две последовательные свертки 3х3, �
 
 -> *numbers_conv.py*
 
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/0e0d7e44-6d15-4ccd-a917-01a557cf0881" />
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/e88ed8fc-64f8-4905-aee0-1b67ec50268e" />
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/0e0d7e44-6d15-4ccd-a917-01a557cf0881" />
 
 -
 
@@ -52,7 +52,7 @@ Bспользуя две последовательные свертки 3х3, �
 
 -> *number_prediction_fully_connected.py* | *0_9_fc.ipynb*
 
-<img width="1001" height="680" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
+<img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/7fbd9917-53a4-468e-95f1-c25cc4636d28" />
 
 
 Изменение функции потерь и точности предсказания в зависимости от итерируемой эпохи
